@@ -5,13 +5,12 @@ document.addEventListener('DOMContentLoaded',function(){
     const alert = document.getElementById('alert');
     const btn = document.getElementById('add');
     let id = 1;
- 
     function removeTodo(id){
        document.getElementById(id).remove();
     };
 
-    function addTodo(){
-        if(title.value ==''||description.value==''){
+    function addTodo() {
+        if(title.value == '' || description.value == '') {
             alert.classList.remove('d-none');
             alert.innerText = 'Title and description are required';
             return;
@@ -34,12 +33,16 @@ document.addEventListener('DOMContentLoaded',function(){
                     `;
 
         const removeBtn = document.createElement('button');
+
         removeBtn.classList.add('btn','btn-danger', 'mb-1', 'ml-1');
         removeBtn.innerHTML = '<i class="fa fa-trash"></i>';
+
         removeBtn.onclick = function(){
             removeTodo(row.getAttribute('id'));
         }
+
         row.children[3].appendChild(removeBtn);
     }
+    
     btn.onclick = addTodo;
 });
